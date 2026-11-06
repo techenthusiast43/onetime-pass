@@ -1,7 +1,7 @@
 {
-  "contractAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-  "chainId": 31337,
-  "networkName": "hardhat",
-  "deployedAt": "2026-11-06T16:25:56.855Z",
-  "explorerUrl": "https://scan.bohr.life/address/0x5FbDB2315678afecb367f032d93F642f64180aa3"
+  "contractAddress": "0x6cbBD9a09682D7Ae0107C667EF2F2145CBeafcE3",
+  "chainId": 968,
+  "networkName": "botchainTestnet",
+  "deployedAt": "2026-11-06T17:13:09.060Z",
+  "explorerUrl": "https://scan.bohr.life/address/0x6cbBD9a09682D7Ae0107C667EF2F2145CBeafcE3"
 }
