@@ -184,3 +184,4 @@ npm run build
 2. **On-Chain Enforcement**: Possession of a public pass ID does not grant authorization. The smart contract validates caller permissions (`msg.sender == creator` in v1) and verifies state transitions on-chain.
 3. **No Private Key Exposure**: Private keys and seed phrases are never handled by the client application. Transactions are signed through the user's connected wallet (MetaMask / AppKit).
 4. **Zero Optimistic Assumptions**: The application never claims a pass was redeemed until the transaction receipt is confirmed with at least 1 block confirmation.
+

@@ -11,13 +11,14 @@ async function main() {
   console.log(`Deploying OneTimePass to network: ${network.name} (Chain ID: ${network.config.chainId})...`);
 
   const [deployer] = await ethers.getSigners();
-  if (deployer) {
-    console.log(`Deployer address: ${deployer.address}`);
-    const balance = await ethers.provider.getBalance(deployer.address);
-    console.log(`Deployer balance: ${ethers.formatEther(balance)} BOT`);
-  } else {
-    console.log("No signer loaded; check PRIVATE_KEY environment variable.");
+  if (!deployer) {
+    console.error("\n❌ Error: No deployer account loaded.");
+    console.error("Please add your 64-character private key into your .env file: PRIVATE_KEY=your_key");
+    process.exit(1);
   }
+  console.log(`Deployer address: ${deployer.address}`);
+  const balance = await ethers.provider.getBalance(deployer.address);
+  console.log(`Deployer balance: ${ethers.formatEther(balance)} BOT`);
 
   const OneTimePass = await ethers.getContractFactory("OneTimePass");
   const oneTimePass = await OneTimePass.deploy();
