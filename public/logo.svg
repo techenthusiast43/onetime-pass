@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0e2a47" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#05101e" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#030712" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Ticket Gradient -->
+    <linearGradient id="ticketGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="50%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+
+    <!-- Metallic Border Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#67e8f9"/>
+      <stop offset="40%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+
+    <!-- Holographic Core Gradient -->
+    <linearGradient id="coreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#a5f3fc"/>
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#06b6d4" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGlow)"/>
+
+  <!-- Ambient Outer Glow -->
+  <circle cx="256" cy="256" r="160" fill="#06b6d4" opacity="0.12" filter="blur(40px)"/>
+
+  <!-- Ticket Shape with Side Notches -->
+  <!-- Ticket Body: 280w x 360h centered at 256, 256 (x: 116, y: 76) -->
+  <g filter="url(#softShadow)">
+    <path d="
+      M 156 96 
+      H 356 
+      A 40 40 0 0 1 396 136
+      V 216
+      A 32 32 0 0 0 396 280
+      V 376
+      A 40 40 0 0 1 356 416
+      H 156
+      A 40 40 0 0 1 116 376
+      V 280
+      A 32 32 0 0 0 116 216
+      V 136
+      A 40 40 0 0 1 156 96
+      Z
+    " fill="#091428" stroke="url(#borderGrad)" stroke-width="8"/>
+
+    <!-- Inner Ticket Surface -->
+    <path d="
+      M 164 108 
+      H 348 
+      A 32 32 0 0 1 380 140
+      V 212
+      A 26 26 0 0 0 380 284
+      V 372
+      A 32 32 0 0 1 348 404
+      H 164
+      A 32 32 0 0 1 132 372
+      V 284
+      A 26 26 0 0 0 132 212
+      V 140
+      A 32 32 0 0 1 164 108
+      Z
+    " fill="url(#ticketGrad)" opacity="0.12"/>
+  </g>
+
+  <!-- Dashed Perforation Line -->
+  <line x1="152" y1="248" x2="360" y2="248" stroke="#38bdf8" stroke-width="3" stroke-dasharray="10 8" opacity="0.4"/>
+
+  <!-- Central Verification Shield & Keyhole / Checkmark -->
+  <g transform="translate(256, 248)">
+    <!-- Outer Shield Glow -->
+    <path d="M 0 -80 L 64 -50 V 0 C 64 54 28 84 0 100 C -28 84 -64 54 -64 0 V -50 Z" 
+          fill="url(#ticketGrad)" opacity="0.25" filter="url(#neonGlow)"/>
+
+    <!-- Main Shield -->
+    <path d="M 0 -76 L 60 -48 V 0 C 60 50 26 78 0 92 C -26 78 -60 50 -60 0 V -48 Z" 
+          fill="#061938" stroke="url(#borderGrad)" stroke-width="5"/>
+
+    <!-- Verification Checkmark / Key Circuit -->
+    <path d="M -22 6 L -6 24 L 26 -16" 
+          fill="none" stroke="url(#coreGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#neonGlow)"/>
+
+    <!-- Pass One-Time Beacon Dot -->
+    <circle cx="0" cy="-32" r="7" fill="#67e8f9" filter="url(#neonGlow)"/>
+    <circle cx="0" cy="-32" r="3" fill="#ffffff"/>
+  </g>
+
+  <!-- Cryptographic corner circuit accents -->
+  <circle cx="160" cy="144" r="4" fill="#38bdf8" opacity="0.6"/>
+  <circle cx="352" cy="144" r="4" fill="#38bdf8" opacity="0.6"/>
+  <circle cx="160" cy="368" r="4" fill="#38bdf8" opacity="0.6"/>
+  <circle cx="352" cy="368" r="4" fill="#38bdf8" opacity="0.6"/>
+</svg>
